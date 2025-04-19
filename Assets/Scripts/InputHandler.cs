@@ -25,7 +25,7 @@ public class InputHandler : MonoBehaviour
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        var rayHits = Physics2D.CircleCastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1f, Vector2.zero);
+        var rayHits = Physics2D.CircleCastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1f, Vector2.zero, 1f, LayerMask.GetMask("Letter"));
 
         foreach (var hit in rayHits)
         {
@@ -65,3 +65,6 @@ public class InputHandler : MonoBehaviour
         objects.Clear();
     }
 }
+// TODO:
+// add letters
+// add game logic recognizing if they are in the correct halves or not
