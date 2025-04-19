@@ -45,13 +45,14 @@ public class InputHandler : MonoBehaviour
             }
         }
 
-        // get all objects who are not in rayhits and call their OnDragEnd
-        MoveableObject[] rayHitObjects = rayHits.Select(hit => hit.collider.GetComponent<MoveableObject>()).ToArray();
-        var unDraggedItems = objects.Except(rayHitObjects);
+        var rayHitObjects = rayHits.Select(hit => hit.collider.GetComponent<MoveableObject>());
+        var unDraggedItems = objects.Except(rayHitObjects.ToArray());
         foreach (var hit in unDraggedItems)
         {
             hit.OnDragEnd();
         }
+
+        objects = rayHitObjects.ToList();
     }
 
     void HandleMouseUp()
@@ -60,5 +61,7 @@ public class InputHandler : MonoBehaviour
         {
             obj.OnDragEnd();
         }
+
+        objects.Clear();
     }
 }
