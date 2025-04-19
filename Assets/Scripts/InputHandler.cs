@@ -67,4 +67,5 @@ public class InputHandler : MonoBehaviour
 }
 // TODO:
 // add letters
+// jittering aginst wall bug
 // add game logic recognizing if they are in the correct halves or not
