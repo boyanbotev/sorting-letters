@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sort A.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Sort S.unity
+    guid: 133ca5552f75e4b4f81b1336c5f24943
+  - enabled: 1
+    path: Assets/Scenes/Sort T.unity
+    guid: df20a9047ab439241885b67322050575
   m_configObjects: {}

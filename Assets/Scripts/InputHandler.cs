@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField] float dragRadius = 0.7f;
+    [SerializeField] float dragDistance = 0.7f;
+
     List<MoveableObject> objects = new List<MoveableObject>();
 
     void Update()
@@ -25,7 +28,7 @@ public class InputHandler : MonoBehaviour
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        var rayHits = Physics2D.CircleCastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1f, Vector2.zero, 1f, LayerMask.GetMask("Letter"));
+        var rayHits = Physics2D.CircleCastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), dragRadius, Vector2.zero, dragDistance, LayerMask.GetMask("Letter"));
 
         foreach (var hit in rayHits)
         {
