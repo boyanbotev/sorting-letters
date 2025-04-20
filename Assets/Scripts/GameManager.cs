@@ -8,13 +8,18 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SortingManager.OnCompleted += GotoNext;
-        Timer.OnComplete += GotoNext;
+        Timer.OnComplete += Restart;
     }
 
     private void OnDisable()
     {
         SortingManager.OnCompleted -= GotoNext;
-        Timer.OnComplete -= GotoNext;
+        Timer.OnComplete -= Restart;
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void GotoNext()
