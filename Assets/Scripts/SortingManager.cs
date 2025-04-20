@@ -7,10 +7,10 @@ public class SortingManager : MonoBehaviour
 {
     public static event System.Action OnCompleted;
     [SerializeField] Transform letters;
-    [SerializeField] Transform leftArea;
-    [SerializeField] Transform rightArea;
-    [SerializeField] string leftLetter;
-    [SerializeField] string rightLetter;
+    [SerializeField] public Transform leftArea;
+    [SerializeField] public Transform rightArea;
+    [SerializeField] public string leftLetter;
+    [SerializeField] public string rightLetter;
 
     private void Start()
     {

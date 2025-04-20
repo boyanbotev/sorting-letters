@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sort T.unity
     guid: df20a9047ab439241885b67322050575
+  - enabled: 1
+    path: Assets/Scenes/Sort P.unity
+    guid: 8e61bf25e95387249b640c027400286e
   m_configObjects: {}

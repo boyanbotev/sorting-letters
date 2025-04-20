@@ -9,6 +9,7 @@ public class MoveableObject : MonoBehaviour
     [SerializeField] float speed = 30f;
     Vector2 offset;
     Rigidbody2D rb;
+    Vector2 dir = Vector2.zero;
 
     private void Awake()
     {
@@ -17,7 +18,14 @@ public class MoveableObject : MonoBehaviour
     public void Move(Vector2 mousePos)
     {
         var offsetTarget = new Vector2(mousePos.x - offset.x, mousePos.y - offset.y);
-        var dir = ((Vector3)offsetTarget - transform.position) * speed;
+        dir = ((Vector3)offsetTarget - transform.position) * speed;
+        rb.velocity = dir;
+    }
+
+    public void MoveBySpeed(Vector2 mousePos, float moveSpeed)
+    {
+        var offsetTarget = new Vector2(mousePos.x - offset.x, mousePos.y - offset.y);
+        dir = ((Vector3)offsetTarget - transform.position) * moveSpeed;
         rb.velocity = dir;
     }
 

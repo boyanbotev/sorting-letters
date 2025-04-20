@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SortingManager.OnCompleted += GotoNext;
+        Timer.OnComplete += GotoNext;
     }
 
     private void OnDisable()
     {
         SortingManager.OnCompleted -= GotoNext;
+        Timer.OnComplete -= GotoNext;
     }
 
     void GotoNext()
