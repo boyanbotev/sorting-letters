@@ -7,6 +7,7 @@ public class InputHandler : MonoBehaviour
 {
     [SerializeField] float dragRadius = 0.7f;
     [SerializeField] float dragDistance = 0.7f;
+    [SerializeField] BoxCollider2D bounds;
 
     List<MoveableObject> objects = new List<MoveableObject>();
 
@@ -27,6 +28,12 @@ public class InputHandler : MonoBehaviour
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
+
+        if (!IsWithinBounds(mousePos))
+        {
+            //HandleMouseUp();
+            return;
+        }
 
         var rayHits = Physics2D.CircleCastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), dragRadius, Vector2.zero, dragDistance, LayerMask.GetMask("Letter"));
 
@@ -67,7 +74,11 @@ public class InputHandler : MonoBehaviour
 
         objects.Clear();
     }
+
+    bool IsWithinBounds(Vector2 pos)
+    {
+        return bounds.bounds.Contains(pos);
+    }
 }
 // TODO:
-// jittering aginst wall bug
 // wierd stopping after coming out of range sometimes bug
